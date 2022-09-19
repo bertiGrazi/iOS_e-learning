@@ -20,7 +20,7 @@ class TabBarViewController: UITabBarController {
         homeScream.title = "Home"
         
         let favoritesScream = FavoritesViewController()
-        favoritesScream.title = "Favortios"
+        favoritesScream.title = "Salvos"
         
         homeScream.navigationItem.largeTitleDisplayMode = .always
         favoritesScream.navigationItem.largeTitleDisplayMode = .always
@@ -33,6 +33,8 @@ class TabBarViewController: UITabBarController {
         
         nav1.navigationBar.prefersLargeTitles = true
         nav2.navigationBar.prefersLargeTitles = true
+        
+        UITabBar.appearance().tintColor = .pinkColor
         
         setViewControllers([nav1, nav2], animated: true)
     }
