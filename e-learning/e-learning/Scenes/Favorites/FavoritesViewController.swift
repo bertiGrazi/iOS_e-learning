@@ -13,4 +13,8 @@ class FavoritesViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
     }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+          return .lightContent
+    }
 }
