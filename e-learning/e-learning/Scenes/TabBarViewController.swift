@@ -17,10 +17,8 @@ class TabBarViewController: UITabBarController {
     
     private func setupControllers() {
         let homeScream = HomeViewController()
-        homeScream.title = "Home"
-        
         let favoritesScream = FavoritesViewController()
-        favoritesScream.title = "Salvos"
+        
         
         homeScream.navigationItem.largeTitleDisplayMode = .always
         favoritesScream.navigationItem.largeTitleDisplayMode = .always
@@ -31,8 +29,11 @@ class TabBarViewController: UITabBarController {
         nav1.tabBarItem = UITabBarItem(title: "Home", image: UIImage(systemName: "house"), tag: 1)
         nav2.tabBarItem = UITabBarItem(title: "Salvos", image: UIImage(systemName: "heart"), tag: 2)
         
-        nav1.navigationBar.prefersLargeTitles = true
-        nav2.navigationBar.prefersLargeTitles = true
+        nav1.isNavigationBarHidden = true
+        nav2.isNavigationBarHidden = true
+        
+        nav1.navigationBar.backgroundColor = .purpleColor
+        nav2.navigationBar.backgroundColor = .purpleColor
         
         UITabBar.appearance().tintColor = .pinkColor
         
