@@ -13,7 +13,7 @@ class TabBarViewController: UITabBarController {
         super.viewDidLoad()
         
         UIApplication.shared.statusBarUIView?.backgroundColor = .purpleColor
-        
+        view.backgroundColor = .white
         setupControllers()
     }
     

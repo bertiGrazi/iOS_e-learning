@@ -9,9 +9,9 @@ import UIKit
 
 class HomeViewController: UIViewController {
     //MARK: - Variable
+    fileprivate var viewModel = CategoryBussinessModel()
     
     //MARK: - View
-    
     fileprivate let scrollView: UIScrollView = {
         let scrowView = UIScrollView()
         scrowView.backgroundColor = .purpleLightColor
@@ -77,14 +77,30 @@ class HomeViewController: UIViewController {
         let label = UILabel()
         label.text = "0 cursos"
         label.font = UIFont(name: "Roboto", size: 12)
-        label.tintColor = .purpleSuperLightColor
+        label.tintColor = .systemGray6
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
 
+    private let collectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .vertical
+        layout.itemSize = CGSize(width: UIScreen.main.bounds.width >= 275 ? 140 : 156, height: 172)
+        layout.sectionInset = UIEdgeInsets(top: 5, left: 10, bottom: 20, right: 45)
+        layout.minimumLineSpacing = 20
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.backgroundColor = .purpleLightColor
+        collectionView.register(CategoryCollectionViewCell.self,
+                                forCellWithReuseIdentifier: CategoryCollectionViewCell.identifier)
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        return collectionView
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        
+        collectionView.dataSource = self
         
         setupView()
         setupConstrains()
@@ -104,6 +120,7 @@ class HomeViewController: UIViewController {
         scrollView.addSubview(categoryLabelAndCoursesCountView)
         categoryLabelAndCoursesCountView.addSubview(categoryLabel)
         categoryLabelAndCoursesCountView.addSubview(coursesCountLabel)
+        scrollView.addSubview(collectionView)
     }
     
     fileprivate func setupConstrains() {
@@ -141,14 +158,39 @@ class HomeViewController: UIViewController {
             categoryLabelAndCoursesCountView.leadingAnchor.constraint(equalTo: searchBarView.leadingAnchor, constant: 0),
             categoryLabelAndCoursesCountView.trailingAnchor.constraint(equalTo: searchBarView.trailingAnchor, constant: 0),
             categoryLabelAndCoursesCountView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width),
-            categoryLabelAndCoursesCountView.heightAnchor.constraint(equalToConstant: 120),
+            categoryLabelAndCoursesCountView.heightAnchor.constraint(equalToConstant: 30),
             
             categoryLabel.topAnchor.constraint(equalTo: categoryLabelAndCoursesCountView.topAnchor, constant: 20),
             categoryLabel.leadingAnchor.constraint(equalTo: categoryLabelAndCoursesCountView.leadingAnchor, constant: 20),
             
             coursesCountLabel.topAnchor.constraint(equalTo: categoryLabelAndCoursesCountView.topAnchor, constant: 24),
             coursesCountLabel.trailingAnchor.constraint(equalTo: categoryLabelAndCoursesCountView.trailingAnchor, constant: -20),
-        ])
+            
+            collectionView.topAnchor.constraint(equalTo: categoryLabelAndCoursesCountView.bottomAnchor, constant: 28),
+            collectionView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 0),
+            collectionView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: 0),
+            collectionView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: 0),
+            collectionView.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height)
+    ])
     }
 }
 
+extension HomeViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return viewModel.fetchCategoryList().count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryCollectionViewCell.identifier, for: indexPath) as? CategoryCollectionViewCell else {
+             fatalError()
+         }
+         
+        cell.configCell(data: viewModel.fetchCategoryList()[indexPath.row])
+         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: (view.frame.size.width/2)-4,
+                      height: (view.frame.size.width/2)-4)
+    }
+}
