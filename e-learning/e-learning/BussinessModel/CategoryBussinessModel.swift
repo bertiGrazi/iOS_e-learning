@@ -18,11 +18,6 @@ class CategoryBussinessModel: CategoryProtocol {
             CategoryCourses(imageCategory: .init(systemName: "studentdesk") ?? UIImage(), nameCategory: "Matemática", numberOfClasses: "13 Aulas"),
             CategoryCourses(imageCategory: .init(systemName: "studentdesk") ?? UIImage(), nameCategory: "Matemática", numberOfClasses: "13 Aulas"),
             CategoryCourses(imageCategory: .init(systemName: "studentdesk") ?? UIImage(), nameCategory: "Matemática", numberOfClasses: "13 Aulas"),
-            CategoryCourses(imageCategory: .init(systemName: "studentdesk") ?? UIImage(), nameCategory: "Matemática", numberOfClasses: "13 Aulas"),
-            CategoryCourses(imageCategory: .init(systemName: "studentdesk") ?? UIImage(), nameCategory: "Matemática", numberOfClasses: "13 Aulas"),
-            CategoryCourses(imageCategory: .init(systemName: "studentdesk") ?? UIImage(), nameCategory: "Matemática", numberOfClasses: "13 Aulas"),
-            CategoryCourses(imageCategory: .init(systemName: "studentdesk") ?? UIImage(), nameCategory: "Matemática", numberOfClasses: "13 Aulas"),
-            CategoryCourses(imageCategory: .init(systemName: "studentdesk") ?? UIImage(), nameCategory: "Matemática", numberOfClasses: "13 Aulas"),
         ]
     }
 }
