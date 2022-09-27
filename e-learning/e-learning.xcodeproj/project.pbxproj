@@ -24,6 +24,7 @@
 		B14EE2D628D8AD01009F6B9E /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14EE2D528D8AD01009F6B9E /* TabBarViewController.swift */; };
 		B14EE2D828D8AD9E009F6B9E /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14EE2D728D8AD9E009F6B9E /* FavoritesViewController.swift */; };
 		B14EE2DD28D8B999009F6B9E /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14EE2DC28D8B999009F6B9E /* UIColor+Extension.swift */; };
+		B17FF2EB28E3B2DA00B3586C /* FavoritesCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17FF2EA28E3B2DA00B3586C /* FavoritesCategoryCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		B14EE2D528D8AD01009F6B9E /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		B14EE2D728D8AD9E009F6B9E /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		B14EE2DC28D8B999009F6B9E /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		B17FF2EA28E3B2DA00B3586C /* FavoritesCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,6 +204,7 @@
 			isa = PBXGroup;
 			children = (
 				B14EE2D728D8AD9E009F6B9E /* FavoritesViewController.swift */,
+				B17FF2EA28E3B2DA00B3586C /* FavoritesCategoryCollectionViewCell.swift */,
 			);
 			path = Favorites;
 			sourceTree = "<group>";
@@ -357,6 +360,7 @@
 				B14EE2A428D8AAA6009F6B9E /* HomeViewController.swift in Sources */,
 				B13F3DFF28D93603000A77EF /* CategoryViewModel.swift in Sources */,
 				B13F3E0128D936A9000A77EF /* CategoryBussinessModel.swift in Sources */,
+				B17FF2EB28E3B2DA00B3586C /* FavoritesCategoryCollectionViewCell.swift in Sources */,
 				B13F3E0328D938F8000A77EF /* CategoryCollectionViewCell.swift in Sources */,
 				B13F3DF928D93508000A77EF /* CategoryCourses.swift in Sources */,
 				B14EE2A028D8AAA6009F6B9E /* AppDelegate.swift in Sources */,
